@@ -1,3 +1,22 @@
+// Navigation toggle
+const hamburger = document.getElementById("hamburger");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+});
+
+overlay.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+});
+
+// Load markdown posts
+
 const postFiles = [
     "posts/welcome.md",
     "posts/google-dorking.md"
@@ -23,7 +42,7 @@ let i = 0;
 
 function type(){
     if(i < text.length){
-        document.getElementById("terminal").innerHTML += text.charAt(i);
+        document.getElementById("typing").innerHTML += text.charAt(i);
         i++;
         setTimeout(type, 50);
     }
