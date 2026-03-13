@@ -1,52 +1,49 @@
-Common Google Dorking Commands
+---
+title: "Common Google Dorking Commands for OSINT and Security Research"
+date: 2026-03-13
+tags: [osint, cybersecurity, google-dorking, reconnaissance]
+description: A quick reference guide to common Google dorking operators used in OSINT and cybersecurity reconnaissance.
+---
 
-site: 
-	Search within a specific site or domain
-	site:example.com
+# Common Google Dorking Commands
 
-filetype: 
-	Finds files of a specific type (think: pdf, xls, csv, etc...)
-	filetype:pdf secrets confidential
-	searches for pdfs with the word "secrets" and "confidential"
+Google Dorking (also called **Google Hacking**) is the use of advanced search operators to locate specific information that might not be easily accessible through normal search queries.
 
-allinurl:
-	search for pages with all the specified words in the url
-	
+Security researchers, OSINT investigators, and penetration testers often use these operators to discover exposed files, misconfigured services, and publicly accessible sensitive data.
 
-inurl:
-	Search for keywords in a URL
-	inurl:admin login 
-	searches for urls with "admin" and "login"
+⚠️ **Disclaimer:** Only use these techniques for **legal research, OSINT, and authorized security testing**.
 
-allintitle:
-	search for pages where all the keywords appear in the title
-	allintitle:login admin
-	searches for pages with both "login" and "admin" in the title
+---
 
-intitle:
-	Search for keywords in a Page Title
-	intitle:"index of" password
-	find pages with "index of" in the title combined with the keyword "password"
+# Core Google Dork Operators
 
-allintext: 
-	searches for pages containing a set of specific words in the text
-	allintext:username password filetype:xls csv
-	Searches for excel and csv files containing "username" and "password" in the text
+## `site:`
+Search within a specific website or domain.
 
-intext:
-	search for specific words within a page
-	intext:"sql syntax error"
-	searches for pages that contain SQL syntax errors, this could mean a potential SQL injection vuln.
+### Example:
+`site:example.com login`
 
-cache: 
-	display google's cached version of a webpage
-	cache:example.com
+This returns pages on **example.com** that contain the word **login**.
 
-link:
-	find pages that link to a specific url
-	link:example.com
+---
 
-related: 
-	find websites similar to a given url
-	related:example.com
+## `filetype:`
+Find files of a specific type.
+
+Common file types include:
+
+- pdf
+- doc
+- xls
+- csv
+- txt
+- config
+
+### Example:
+`filetype:pdf secrets confidential`
+
+This searches for **PDF documents** containing the words **secrets** and **confidential**.
+
+Example OSINT search: site:example.com filetype:xls password
+
 
