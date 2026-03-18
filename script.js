@@ -19,7 +19,7 @@ overlay.addEventListener("click", () => {
 
 const postFiles = [
     "./posts/welcome.md",
-    "posts/google-dorking.md"
+    "./posts/google-dorking.md"
 ];
 
 const container = document.getElementById("posts");
