@@ -18,7 +18,7 @@ overlay.addEventListener("click", () => {
 // Load markdown posts
 
 const postFiles = [
-    "posts/welcome.md",
+    "./posts/welcome.md",
     "posts/google-dorking.md"
 ];
 
