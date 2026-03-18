@@ -43,15 +43,51 @@ postFiles.forEach(post => {
 });
 
 // terminal typing animation
-const text = " loading breach intelligence . . .";
-let i = 0;
+const commands = [
+    " cd w2e/BreachAnalysis/",
+    " ./run.sh",
+    "...Loading modules...",
+    "...Initializing environment...",
+    "...Starting analysis...",
+    " ready."
+];
 
-function type(){
-    if(i < text.length){
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(type, 50);
+let cmdIndex = 0;
+let charIndex = 0;
+
+const terminal = document.getElementById("typing");
+
+function typeTerminal() {
+    if (cmdIndex < commands.length) {
+        if (charIndex < commands[cmdIndex].length) {
+            terminal.innerHTML += commands[cmdIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(typeTerminal, 20);
+        } else {
+            terminal.innerHTML += "<br>";
+            cmdIndex++;
+            charIndex = 0;
+            setTimeout(typeTerminal,400);
+        }
+    } else {
+        /* clear screen once everything is finished */
+        setTimeout(() => {
+            terminal.innerHTML = "";
+            printPWD();
+        },1000);
     }
 }
 
-type();
+function printPWD() {
+    const pwd = "root@jv50n:~/w2e/BreachAnalysis/Example-Post$";
+    let i = 0;
+    function typePWD() {
+        if (i < pwd.length) {
+            terminal.innerHTML += pwd.charAt(i);
+            i++;
+            setTimeout(typePWD, 40);
+        }
+    }
+    typePWD();
+}
+typeTerminal();

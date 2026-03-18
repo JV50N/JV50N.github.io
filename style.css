@@ -195,3 +195,32 @@ body {
     padding: 3px 6px;
 }
 
+/* Terminal Banner */
+.terminal {
+    background: #000;
+    border: 1px solid #222;
+    padding: 12px 15px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    color: #00ff9c;
+}
+
+.prompt {
+    color: #00ff9c;
+    margin-right: 8px;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    background: #00ff9c;
+    margin-left: 3px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%{opacity: 0}
+    50%{opacity: 1}
+    100%{opacity: 0}
+}
+
