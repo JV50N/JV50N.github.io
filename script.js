@@ -26,14 +26,20 @@ const container = document.getElementById("posts");
 
 postFiles.forEach(post => {
     fetch(post)
-        .then(res => res.text())
+        .then(res => {
+            if (!res.ok) {
+                throw new Error(`Failed to load ${post}`);
+            }
+            return res.text();
+        })
         .then(markdown => {
             const html = marked.parse(markdown);
             const article = document.createElement("div");
             article.className = "post";
             article.innerHTML = html;
             container.appendChild(article);
-        });
+        })
+        .catch(err => console.log(err));
 });
 
 // terminal typing animation
